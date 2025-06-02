@@ -1,0 +1,120 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="#FAFAFA">
+
+    <LinearLayout
+        android:id="@+id/rootLayout"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!-- Salary display -->
+        <TextView
+            android:id="@+id/salaryTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Salary: R0.00"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:paddingBottom="4dp" />
+
+        <ProgressBar
+            android:id="@+id/salaryProgressBar"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:max="100"
+            android:progress="0"
+            android:progressTint="#2196F3"
+            android:backgroundTint="#E0E0E0"
+            android:layout_marginBottom="4dp"
+            android:background="@drawable/rounded_progress_bg" />
+
+        <TextView
+            android:id="@+id/salaryRemainingTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Remaining Salary: R0.00"
+            android:textSize="16sp"
+            android:textColor="#555"
+            android:paddingBottom="16dp" />
+
+        <!-- Monthly Budget Heading -->
+        <TextView
+            android:id="@+id/monthlyBudgetHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Monthly Budget"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:layout_marginTop="16dp"
+            android:paddingBottom="12dp" />
+
+        <!-- Goals Section -->
+        <TextView
+            android:id="@+id/minGoalTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Minimum Goal:"
+            android:textSize="16sp"
+            android:textColor="#444"
+            android:paddingBottom="4dp" />
+
+        <TextView
+            android:id="@+id/maxGoalTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Maximum Goal:"
+            android:textSize="16sp"
+            android:textColor="#444"
+            android:paddingBottom="8dp" />
+
+        <ProgressBar
+            android:id="@+id/spendingProgressBar"
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="24dp"
+            android:max="100"
+            android:progress="0"
+            android:progressTint="#4CAF50"
+            android:backgroundTint="#E0E0E0"
+            android:layout_marginBottom="8dp"
+            android:background="@drawable/rounded_progress_bg" />
+
+        <TextView
+            android:id="@+id/totalSpentTextView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Total Spent:"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:paddingBottom="16dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Category Summaries"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:textColor="#000"
+            android:paddingTop="8dp"
+            android:paddingBottom="8dp" />
+
+        <LinearLayout
+            android:id="@+id/categoryContainer"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#FFFFFF"
+            android:padding="8dp"
+            android:elevation="2dp"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#FFFFFF" />
+    </LinearLayout>
+</ScrollView>

@@ -1,0 +1,56 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="24dp"
+    android:background="#FAFAFA">
+
+    <EditText
+        android:id="@+id/startDateEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="false"
+        android:hint="Start Date (yyyy-MM-dd)"
+        android:inputType="none"
+        android:minHeight="48dp"
+        android:background="@drawable/rounded_edittext"
+        android:padding="12dp"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/endDateEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:clickable="true"
+        android:focusable="false"
+        android:hint="End Date (yyyy-MM-dd)"
+        android:inputType="none"
+        android:minHeight="48dp"
+        android:background="@drawable/rounded_edittext"
+        android:padding="12dp"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/filterButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Show Expenses"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_button"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:padding="12dp" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/expensesRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="16dp"
+        android:padding="4dp"
+        android:clipToPadding="false" />
+</LinearLayout>

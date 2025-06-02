@@ -1,0 +1,10 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/nav_salary" android:title="Enter Salary" />
+    <item android:id="@+id/nav_category" android:title="Create Category" />
+    <item android:id="@+id/nav_expense" android:title="Create Expense" />
+    <item android:id="@+id/nav_set_goal" android:title="Set Monthly Goals" />
+    <item android:id="@+id/nav_expense_list" android:title="View Expense List" />
+    <item android:id="@+id/nav_category_totals" android:title="View Category Totals" />
+    <item android:id="@+id/nav_monthly_summary" android:title="View Monthly Summary" />
+    <item android:id="@+id/nav_category_graph" android:title="View Category Graph" />
+</menu>

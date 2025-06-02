@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    android:background="#FAFAFA">
+
+    <EditText
+        android:id="@+id/categoryEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Enter category name"
+        android:minHeight="48dp"
+        android:background="@drawable/rounded_edittext"
+        android:padding="12dp"
+        android:textSize="16sp"
+        android:textColor="#000000"
+        android:textColorHint="#888888" />
+
+    <Button
+        android:id="@+id/addCategoryButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Add Category"
+        android:layout_marginTop="8dp"
+        android:textSize="16sp"
+        android:textColor="#FFFFFF"
+        android:padding="12dp"
+        android:background="@drawable/rounded_button" />
+
+    <TextView
+        android:id="@+id/listHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Your Categories"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#333333"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="8dp"/>
+
+    <ListView
+        android:id="@+id/categoryListView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:divider="#CCCCCC"
+        android:dividerHeight="1dp"
+        android:background="#FFFFFF"
+        android:padding="8dp" />
+</LinearLayout>

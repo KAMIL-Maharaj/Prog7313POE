@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:background="#FAFAFA">
+
+    <EditText
+        android:id="@+id/startDateEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="false"
+        android:hint="Start Date (yyyy-MM-dd)"
+        android:inputType="none"
+        android:minHeight="48dp"
+        android:background="@drawable/rounded_edittext"
+        android:padding="12dp"
+        android:textSize="16sp" />
+
+    <EditText
+        android:id="@+id/endDateEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:clickable="true"
+        android:focusable="false"
+        android:hint="End Date (yyyy-MM-dd)"
+        android:inputType="none"
+        android:minHeight="48dp"
+        android:background="@drawable/rounded_edittext"
+        android:padding="12dp"
+        android:textSize="16sp" />
+
+    <Button
+        android:id="@+id/showTotalsButton"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Show Category Totals"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_button"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:padding="12dp" />
+
+    <TextView
+        android:id="@+id/totalsTextView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:textSize="16sp"
+        android:paddingTop="20dp"
+        android:padding="8dp"
+        android:textColor="#333333" />
+</LinearLayout>

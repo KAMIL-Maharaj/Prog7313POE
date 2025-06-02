@@ -1,0 +1,118 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFA">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="24dp">
+
+        <!-- Section 1: Overall Monthly Goals -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Overall Monthly Goals"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginBottom="12dp" />
+
+        <EditText
+            android:id="@+id/minGoalEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Minimum Monthly Goal"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp"
+            android:background="@drawable/rounded_edittext"
+            android:padding="12dp"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/maxGoalEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="Maximum Monthly Goal"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp"
+            android:background="@drawable/rounded_edittext"
+            android:padding="12dp"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/saveOverallGoalButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save Overall Goal"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rounded_button"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:padding="12dp" />
+
+        <!-- Divider -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="#CCCCCC"
+            android:layout_marginVertical="24dp" />
+
+        <!-- Section 2: Category Goals -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Set Goal Per Category"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="#333333"
+            android:layout_marginBottom="12dp" />
+
+        <Spinner
+            android:id="@+id/categorySpinner"
+            android:layout_width="match_parent"
+            android:layout_height="48dp"
+            android:minHeight="48dp"
+            android:background="@drawable/rounded_spinner"
+            android:padding="12dp"
+            android:spinnerMode="dropdown" />
+
+        <EditText
+            android:id="@+id/categoryMinGoalEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="Minimum Category Goal"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp"
+            android:background="@drawable/rounded_edittext"
+            android:padding="12dp"
+            android:textSize="16sp" />
+
+        <EditText
+            android:id="@+id/categoryMaxGoalEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            android:hint="Maximum Category Goal"
+            android:inputType="numberDecimal"
+            android:minHeight="48dp"
+            android:background="@drawable/rounded_edittext"
+            android:padding="12dp"
+            android:textSize="16sp" />
+
+        <Button
+            android:id="@+id/saveCategoryGoalButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Save Category Goal"
+            android:layout_marginTop="16dp"
+            android:background="@drawable/rounded_button"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:padding="12dp" />
+
+    </LinearLayout>
+</ScrollView>

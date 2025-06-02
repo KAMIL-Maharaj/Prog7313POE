@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center"
+    android:background="#ECEFF1">
+
+    <!-- Register Header -->
+    <TextView
+        android:id="@+id/registerTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Register"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:textColor="#212121"
+        android:fontFamily="sans-serif-medium"
+        android:layout_marginBottom="32dp" />
+
+    <!-- Email Field -->
+    <EditText
+        android:id="@+id/emailEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Email"
+        android:inputType="textEmailAddress"
+        android:minHeight="48dp"
+        android:padding="12dp"
+        android:background="@drawable/edittext_bg"
+        android:textColor="#212121"
+        android:textColorHint="#757575"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif" />
+
+    <!-- Password Field -->
+    <EditText
+        android:id="@+id/passwordEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:hint="Password"
+        android:inputType="textPassword"
+        android:minHeight="48dp"
+        android:padding="12dp"
+        android:background="@drawable/edittext_bg"
+        android:textColor="#212121"
+        android:textColorHint="#757575"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif" />
+
+    <!-- Register Button -->
+    <Button
+        android:id="@+id/registerButton"
+        android:text="Register"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:backgroundTint="#3F51B5"
+        android:textColor="#FFFFFF"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif-medium"
+        android:paddingVertical="12dp" />
+
+    <!-- Redirect to Login -->
+    <Button
+        android:id="@+id/loginRedirectButton"
+        android:text="Already have an account? Login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:backgroundTint="#FF7043"
+        android:textColor="#FFFFFF"
+        android:textAllCaps="false"
+        android:textSize="16sp"
+        android:fontFamily="sans-serif-medium"
+        android:paddingVertical="12dp" />
+</LinearLayout>
