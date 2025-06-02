@@ -2,11 +2,10 @@ package com.example.prog7313
 
 import android.app.DatePickerDialog
 import android.os.Bundle
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
-import android.widget.Toast
+import android.view.ViewGroup
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.cardview.widget.CardView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import java.text.SimpleDateFormat
@@ -17,10 +16,9 @@ class CategoryTotalsActivity : AppCompatActivity() {
     private lateinit var startDateEditText: EditText
     private lateinit var endDateEditText: EditText
     private lateinit var showTotalsButton: Button
-    private lateinit var totalsTextView: TextView
+    private lateinit var totalsContainer: LinearLayout
 
     private val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-    private val calendar = Calendar.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -29,7 +27,7 @@ class CategoryTotalsActivity : AppCompatActivity() {
         startDateEditText = findViewById(R.id.startDateEditText)
         endDateEditText = findViewById(R.id.endDateEditText)
         showTotalsButton = findViewById(R.id.showTotalsButton)
-        totalsTextView = findViewById(R.id.totalsTextView)
+        totalsContainer = findViewById(R.id.totalsContainer)
 
         startDateEditText.setOnClickListener {
             showDatePicker { date -> startDateEditText.setText(date) }
@@ -70,7 +68,6 @@ class CategoryTotalsActivity : AppCompatActivity() {
         ref.addListenerForSingleValueEvent(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 val totals = HashMap<String, Double>()
-
                 for (expenseSnapshot in snapshot.children) {
                     val expense = expenseSnapshot.getValue(ExpenseListActivity.Expense::class.java)
                     expense?.let {
@@ -82,16 +79,40 @@ class CategoryTotalsActivity : AppCompatActivity() {
                     }
                 }
 
-                // Show totals in the TextView
-                val resultText = StringBuilder("Total spent by category:\n\n")
+                // Update UI
+                totalsContainer.removeAllViews()
                 if (totals.isEmpty()) {
-                    resultText.append("No expenses found for this period.")
+                    val noDataText = TextView(this@CategoryTotalsActivity).apply {
+                        text = "No expenses found for this period."
+                        textSize = 16f
+                        setPadding(16, 16, 16, 16)
+                    }
+                    totalsContainer.addView(noDataText)
                 } else {
                     totals.forEach { (category, total) ->
-                        resultText.append("$category: R${"%.2f".format(total)}\n")
+                        val card = CardView(this@CategoryTotalsActivity).apply {
+                            val params = LinearLayout.LayoutParams(
+                                ViewGroup.LayoutParams.MATCH_PARENT,
+                                ViewGroup.LayoutParams.WRAP_CONTENT
+                            )
+                            params.setMargins(0, 0, 0, 20)
+                            layoutParams = params
+                            radius = 16f
+                            cardElevation = 8f
+                            setContentPadding(32, 24, 32, 24)
+                            setCardBackgroundColor(getColor(R.color.white))
+                        }
+
+                        val textView = TextView(this@CategoryTotalsActivity).apply {
+                            text = "$category: R${"%.2f".format(total)}"
+                            textSize = 18f
+                            setTextColor(getColor(R.color.black))
+                        }
+
+                        card.addView(textView)
+                        totalsContainer.addView(card)
                     }
                 }
-                totalsTextView.text = resultText.toString()
             }
 
             override fun onCancelled(error: DatabaseError) {

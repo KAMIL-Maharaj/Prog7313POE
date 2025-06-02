@@ -43,7 +43,7 @@ class CreateExpenseActivity : AppCompatActivity() {
         startTimeEditText = findViewById(R.id.startTimeEditText)
         endTimeEditText = findViewById(R.id.endTimeEditText)
         descriptionEditText = findViewById(R.id.descriptionEditText)
-        amountEditText = findViewById(R.id.amountEditText) // NEW: Find amount input
+        amountEditText = findViewById(R.id.amountEditText)
         categorySpinner = findViewById(R.id.categorySpinner)
         saveButton = findViewById(R.id.saveButton)
         selectPhotoButton = findViewById(R.id.selectPhotoButton)
@@ -215,6 +215,17 @@ class CreateExpenseActivity : AppCompatActivity() {
         expenseRef.setValue(expense)
             .addOnSuccessListener {
                 Toast.makeText(this, "Expense saved", Toast.LENGTH_SHORT).show()
+
+                // ✅ Award achievement for adding an expense
+                val uid = FirebaseAuth.getInstance().currentUser?.uid
+                if (uid != null) {
+                    FirebaseDatabase.getInstance().reference
+                        .child("achievements")
+                        .child(uid)
+                        .child("added_expense")
+                        .setValue(true)
+                }
+
                 finish()
             }
             .addOnFailureListener {

@@ -71,6 +71,13 @@ class SetGoalActivity : AppCompatActivity() {
         goalRef.setValue(goalData)
             .addOnSuccessListener {
                 Toast.makeText(this, "Monthly goals saved", Toast.LENGTH_SHORT).show()
+
+                // ✅ Unlock achievement: set_monthly_goals
+                FirebaseDatabase.getInstance().reference
+                    .child("achievements")
+                    .child(uid)
+                    .child("set_monthly_goals")
+                    .setValue(true)
             }
             .addOnFailureListener {
                 Toast.makeText(this, "Failed to save monthly goals", Toast.LENGTH_SHORT).show()
@@ -106,6 +113,13 @@ class SetGoalActivity : AppCompatActivity() {
                 Toast.makeText(this, "Goals saved for category: $selectedCategory", Toast.LENGTH_SHORT).show()
                 categoryMinGoalEditText.text.clear()
                 categoryMaxGoalEditText.text.clear()
+
+                // ✅ Unlock achievement: set_category_goals
+                FirebaseDatabase.getInstance().reference
+                    .child("achievements")
+                    .child(uid)
+                    .child("set_category_goals")
+                    .setValue(true)
             }
             .addOnFailureListener {
                 Toast.makeText(this, "Failed to save category goals", Toast.LENGTH_SHORT).show()

@@ -7,6 +7,7 @@ import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.database.FirebaseDatabase
 
 class LoginActivity : AppCompatActivity() {
 
@@ -36,7 +37,24 @@ class LoginActivity : AppCompatActivity() {
                 .addOnCompleteListener(this) { task ->
                     if (task.isSuccessful) {
                         Toast.makeText(this, "Login successful!", Toast.LENGTH_SHORT).show()
-                        startActivity(Intent(this, DashboardActivity::class.java))  // <-- updated here
+
+                        // Add achievement "first_login" in Firebase
+                        val uid = auth.currentUser?.uid
+                        if (uid != null) {
+                            val userRef = FirebaseDatabase.getInstance().reference.child("achievements").child(uid)
+                            userRef.child("first_login").addListenerForSingleValueEvent(object : com.google.firebase.database.ValueEventListener {
+                                override fun onDataChange(snapshot: com.google.firebase.database.DataSnapshot) {
+                                    if (!snapshot.exists()) {
+                                        userRef.child("first_login").setValue(true)
+                                    }
+                                }
+                                override fun onCancelled(error: com.google.firebase.database.DatabaseError) {
+                                    // Optionally handle error here
+                                }
+                            })
+                        }
+
+                        startActivity(Intent(this, DashboardActivity::class.java))
                         finish()
                     } else {
                         Toast.makeText(this, "Login failed: ${task.exception?.message}", Toast.LENGTH_SHORT).show()

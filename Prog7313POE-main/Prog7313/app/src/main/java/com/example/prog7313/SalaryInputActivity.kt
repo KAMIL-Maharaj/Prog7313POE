@@ -11,7 +11,6 @@ import com.google.firebase.database.FirebaseDatabase
 class SalaryInputActivity : AppCompatActivity() {
 
     private lateinit var salaryEditText: EditText
-    private lateinit var salaryDayEditText: EditText
     private lateinit var saveSalaryButton: Button
 
     private val auth = FirebaseAuth.getInstance()
@@ -22,33 +21,24 @@ class SalaryInputActivity : AppCompatActivity() {
         setContentView(R.layout.activity_salary_input)
 
         salaryEditText = findViewById(R.id.salaryEditText)
-        salaryDayEditText = findViewById(R.id.salaryDayEditText)
         saveSalaryButton = findViewById(R.id.saveSalaryButton)
 
         saveSalaryButton.setOnClickListener {
             val salary = salaryEditText.text.toString().trim()
-            val salaryDay = salaryDayEditText.text.toString().trim().toIntOrNull()
 
             if (salary.isEmpty()) {
                 Toast.makeText(this, "Please enter your salary", Toast.LENGTH_SHORT).show()
                 return@setOnClickListener
             }
 
-            if (salaryDay == null || salaryDay !in 1..31) {
-                Toast.makeText(this, "Please enter a valid salary day (1–31)", Toast.LENGTH_SHORT).show()
-                return@setOnClickListener
-            }
-
             val uid = auth.currentUser?.uid
             if (uid != null) {
-                // Save salary to Firebase
                 database.child("users").child(uid).child("salary").setValue(salary)
                     .addOnSuccessListener {
-                        // Save salary day locally using SharedPreferences
-                        val prefs = getSharedPreferences("SalaryPrefs", MODE_PRIVATE)
-                        prefs.edit().putInt("salary_day", salaryDay).apply()
+                        Toast.makeText(this, "Salary saved!", Toast.LENGTH_SHORT).show()
 
-                        Toast.makeText(this, "Salary and salary day saved!", Toast.LENGTH_SHORT).show()
+                        // ✅ Mark achievement for entering salary
+                        database.child("achievements").child(uid).child("entered_salary").setValue(true)
                     }
                     .addOnFailureListener {
                         Toast.makeText(this, "Failed to save salary", Toast.LENGTH_SHORT).show()
