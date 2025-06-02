@@ -90,6 +90,8 @@ class DashboardActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
             R.id.nav_category_totals -> startActivity(Intent(this, CategoryTotalsActivity::class.java))
             R.id.nav_monthly_summary -> startActivity(Intent(this, MonthlySummaryActivity::class.java))
             R.id.nav_category_graph -> startActivity(Intent(this, CategorySpendingChartActivity::class.java))
+            R.id.activity_achievements -> startActivity(Intent(this, AchievementsActivity::class.java))
+            R.id.nav_budget_game-> startActivity(Intent(this, BubbleGameActivity::class.java))
         }
         drawerLayout.closeDrawer(GravityCompat.START)
         return true

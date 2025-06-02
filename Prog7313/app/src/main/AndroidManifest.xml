@@ -33,6 +33,9 @@
         <activity
             android:name=".CategoryActivity"
             android:exported="false" />
+        <activity android:name=".BubbleGameActivity"
+            android:exported="false"/>
+
         <activity
             android:name=".DashboardActivity"
             android:exported="false" />
@@ -40,13 +43,13 @@
             android:name=".SalaryInputActivity"
             android:exported="false" />
         <activity
+            android:name=".AchievementsActivity"
+            android:exported="false" />
+        <activity
             android:name=".LoginActivity"
             android:exported="false" />
         <activity
             android:name=".RegisterActivity"
-            android:exported="false" />
-        <activity
-            android:name=".SetSalaryDayActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

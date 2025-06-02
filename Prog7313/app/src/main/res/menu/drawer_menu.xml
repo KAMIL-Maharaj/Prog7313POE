@@ -7,4 +7,9 @@
     <item android:id="@+id/nav_category_totals" android:title="View Category Totals" />
     <item android:id="@+id/nav_monthly_summary" android:title="View Monthly Summary" />
     <item android:id="@+id/nav_category_graph" android:title="View Category Graph" />
+    <item android:id="@+id/activity_achievements" android:title="View achievements" />
+    <item
+        android:id="@+id/nav_budget_game" android:title="Play Budget Game" />
+
+
 </menu>

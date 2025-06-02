@@ -40,7 +40,7 @@
             android:id="@+id/salaryCountdownText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Days until salary: "
+            android:text="Days until  next salary: "
             android:textSize="18sp"
             android:padding="16dp" />
     </LinearLayout>
